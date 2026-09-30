@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Ustoz va Murabbiylar Kuni</title>
+
+  <style>
+    /* ===== TAG selectorlar ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #fff8f0;
+      color: #333333;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 52px;
+      color: #ffffff;
+      text-shadow: 2px 2px 6px #7a2c00;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 36px;
+      color: #d2481e;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 22px;
+      color: #222222;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 17px;
+      color: #555555;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* ===== HEADER (Flex navbar) ===== */
+    #header {
+      background-color: #ffffff;
+      padding: 18px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid #f0523c;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 700;
+      color: #f0523c;
+    }
+
+    .logo i {
+      color: #e8a317;
+      margin-right: 8px;
+    }
+
+    .menu {
+      display: flex;
+      gap: 30px;
+    }
+
+    .menu a {
+      color: #333333;
+      font-weight: 600;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 20px;
+    }
+
+    .menu .aktiv {
+      background-color: #f0523c;
+      color: #ffffff;
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      background-color: #f0523c;
+      padding: 100px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      border-bottom: 8px solid #e8a317;
+    }
+
+    .hero-matn {
+      width: 60%;
+    }
+
+    .hero-matn p {
+      color: #fff1e6;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .belgi {
+      display: inline-block;
+      background-color: #ffd27d;
+      color: #7a2c00;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+    }
+
+    .tugma {
+      display: inline-block;
+      background-color: #ffffff;
+      color: #f0523c;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 14px 32px;
+      border: 3px solid #ffd27d;
+      border-radius: 40px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-rasm {
+      width: 300px;
+      height: 300px;
+      background-color: #ffe9b8;
+      border: 10px solid #ffffff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 120px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ===== UMUMIY SECTION ===== */
+    .bolim {
+      padding: 80px 60px;
+    }
+
+    .kichik-sarlavha {
+      text-align: center;
+      color: #e8a317;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+
+    .tavsif {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 45px auto;
+    }
+
+    /* ===== HAQIDA ===== */
+    #haqida {
+      background-color: #ffffff;
+    }
+
+    .haqida-quti {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .haqida-rasm {
+      width: 40%;
+      height: 300px;
+      background-color: #fde3d8;
+      border: 4px dashed #f0523c;
+      border-radius: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 110px;
+    }
+
+    .haqida-matn {
+      width: 60%;
+    }
+
+    .haqida-matn p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    /* ===== RAQAMLAR ===== */
+    #raqamlar {
+      background-color: #2b2b2b;
+      display: flex;
+      justify-content: space-around;
+      padding: 60px;
+    }
+
+    .raqam {
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .raqam i {
+      font-size: 40px;
+      color: #ffd27d;
+      margin-bottom: 10px;
+    }
+
+    .raqam h3 {
+      color: #ffd27d;
+      font-size: 40px;
+      margin-bottom: 0;
+    }
+
+    .raqam p {
+      color: #dddddd;
+    }
+
+    /* ===== TABRIK KARTALARI ===== */
+    .kartalar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .karta {
+      flex: 1;
+      min-width: 280px;
+      background-color: #ffffff;
+      border: 2px solid #f6d5c8;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(120, 70, 50, 0.12);
+    }
+
+    .karta i {
+      font-size: 42px;
+      color: #f0523c;
+      margin-bottom: 15px;
+    }
+
+    #karta2 {
+      border-color: #e8a317;
+    }
+
+    #karta2 i {
+      color: #e8a317;
+    }
+
+    #karta3 {
+      border-color: #2bb673;
+    }
+
+    #karta3 i {
+      color: #2bb673;
+    }
+
+    /* ===== USTOZLARIMIZ ===== */
+    #ustozlar {
+      background-color: #fff1e8;
+    }
+
+    .ustoz-karta {
+      flex: 1;
+      min-width: 220px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .ustoz-avatar {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 15px auto;
+      background-color: #ffe0d7;
+      border: 4px solid #f0523c;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 50px;
+    }
+
+    .ustoz-karta span {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #ffe9b8;
+      color: #7a5200;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* ===== TARIX ===== */
+    #tarix {
+      background-color: #ffffff;
+    }
+
+    .qadam {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto 22px auto;
+      background-color: #f8f9fb;
+      padding: 22px;
+      border-radius: 18px;
+      border-left: 8px solid #f0523c;
+    }
+
+    .qadam-raqam {
+      min-width: 50px;
+      height: 50px;
+      background-color: #f0523c;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 20px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* ===== HIKMATLI SO'ZLAR ===== */
+    #hikmat {
+      background-color: #f0523c;
+      text-align: center;
+      padding: 90px 60px;
+    }
+
+    .hikmat-quti {
+      max-width: 850px;
+      margin: 0 auto;
+      background-color: #2b2b2b;
+      border: 6px solid #ffd27d;
+      border-radius: 30px;
+      padding: 50px;
+    }
+
+    .hikmat-quti i {
+      font-size: 45px;
+      color: #ffd27d;
+      margin-bottom: 15px;
+    }
+
+    .hikmat-quti h2 {
+      color: #ffd27d;
+    }
+
+    .hikmat-quti p {
+      color: #eeeeee;
+      font-size: 22px;
+      font-style: italic;
+    }
+
+    /* ===== TABRIK YOZISH ===== */
+    #yozish {
+      background-color: #fff8f0;
+      text-align: center;
+    }
+
+    .tilak-quti {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border: 3px solid #e8a317;
+      outline: 3px dashed #f0523c;
+      outline-offset: 8px;
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .tilak-quti p {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    /* ===== FOOTER ===== */
+    #footer {
+      background-color: #222222;
+      color: #ffffff;
+      padding: 50px 60px 30px 60px;
+    }
+
+    .footer-yuqori {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #555555;
+    }
+
+    .footer-yuqori h3 {
+      color: #ffd27d;
+    }
+
+    .footer-yuqori p {
+      color: #cccccc;
+      font-size: 15px;
+    }
+
+    .footer-pastki {
+      text-align: center;
+      margin-top: 25px;
+      color: #aaaaaa;
+      font-size: 14px;
+    }
+
+    .footer-pastki span {
+      color: #ffd27d;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header">
+    <div class="logo"><i>📖</i>UstozKuni</div>
+    <div class="menu">
+      <a href="#hero" class="aktiv">Bosh sahifa</a>
+      <a href="#haqida">Bayram haqida</a>
+      <a href="#tabrik">Tabrik</a>
+      <a href="#ustozlar">Ustozlar</a>
+      <a href="#tarix">Tarix</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="hero-matn">
+      <span class="belgi">1-Oktabr — Bayram</span>
+      <h1>Ustoz va Murabbiylar Kuni</h1>
+      <p>Bilim va tarbiya berish yo'lida fidoyilik ko'rsatgan barcha aziz o'qituvchilarimizga bag'ishlanadi.</p>
+      <a href="#tabrik" class="tugma">Tabriklash</a>
+    </div>
+    <div class="hero-rasm">👨‍🏫</div>
+  </div>
+
+  <!-- BAYRAM HAQIDA -->
+  <div id="haqida" class="bolim">
+    <p class="kichik-sarlavha">Bayram haqida</p>
+    <h2>Ustoz — ikkinchi ota</h2>
+    <p class="tavsif">Har yili 1-oktabr kuni mamlakatimizda ustoz va murabbiylar sharafiga bayram nishonlanadi.</p>
+
+    <div class="haqida-quti">
+      <div class="haqida-rasm">📚</div>
+      <div class="haqida-matn">
+        <h3>Nega bu kun muhim?</h3>
+        <p>Ustoz — bizga harf o'rgatgan, to'g'ri yo'lni ko'rsatgan inson. Bugun qanday kasb egasi bo'lmaylik, boshlanishimiz ustozdan.</p>
+        <p>Bu kunda o'quvchilar ustozlariga gul, tabrik va samimiy so'zlar bilan minnatdorchilik bildiradilar. Maktablarda bayram konsertlari va uchrashuvlar o'tkaziladi.</p>
+        <p>Ustozlik faqat dars berish emas, balki yosh avlodga tarbiya, mehr va ishonch berishdir.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- RAQAMLAR -->
+  <div id="raqamlar">
+    <div class="raqam">
+      <i>🎓</i>
+      <h3>1000+</h3>
+      <p>Bitiruvchilar</p>
+    </div>
+    <div class="raqam">
+      <i>👨‍🏫</i>
+      <h3>50+</h3>
+      <p>Tajribali ustozlar</p>
+    </div>
+    <div class="raqam">
+      <i>📚</i>
+      <h3>30+</h3>
+      <p>Fanlar</p>
+    </div>
+    <div class="raqam">
+      <i>❤️</i>
+      <h3>100%</h3>
+      <p>Minnatdorchilik</p>
+    </div>
+  </div>
+
+  <!-- TABRIK KARTALARI -->
+  <div id="tabrik" class="bolim">
+    <p class="kichik-sarlavha">Samimiy tilaklar</p>
+    <h2>Bayram tabriklari</h2>
+    <p class="tavsif">Ustozlarimizga atalgan eng iliq so'zlar.</p>
+
+    <div class="kartalar">
+      <div class="karta">
+        <i>🍎</i>
+        <h3>Chin dildan tabrik</h3>
+        <p>Bergan har bir bilim va tarbiya uchun cheksiz minnatdorchilik bildiramiz.</p>
+      </div>
+      <div class="karta" id="karta2">
+        <i>📖</i>
+        <h3>Bilim manbai</h3>
+        <p>Sizning mehnatingiz kelajak avlodni shakllantiradi va yurtimizni yuksaltiradi.</p>
+      </div>
+      <div class="karta" id="karta3">
+        <i>⭐</i>
+        <h3>Doimo hurmatda</h3>
+        <p>Ustozlik — eng sharafli va eng mas'uliyatli kasb. Siz doim hurmatdasiz!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- USTOZLARIMIZ -->
+  <div id="ustozlar" class="bolim">
+    <p class="kichik-sarlavha">Bizning ustozlar</p>
+    <h2>Aziz ustozlarimiz</h2>
+    <p class="tavsif">Har bir fan ustozi o'z ishining ustasi.</p>
+
+    <div class="kartalar">
+      <div class="ustoz-karta">
+        <div class="ustoz-avatar">👩‍🏫</div>
+        <h3>Ona tili ustozi</h3>
+        <p>So'zning qadrini o'rgatadi.</p>
+        <span>Ona tili</span>
+      </div>
+      <div class="ustoz-karta">
+        <div class="ustoz-avatar">👨‍🏫</div>
+        <h3>Matematika ustozi</h3>
+        <p>Mantiqiy fikrlashni o'rgatadi.</p>
+        <span>Matematika</span>
+      </div>
+      <div class="ustoz-karta">
+        <div class="ustoz-avatar">👩‍💻</div>
+        <h3>Informatika ustozi</h3>
+        <p>Kelajak kasblariga yo'l ochadi.</p>
+        <span>Informatika</span>
+      </div>
+      <div class="ustoz-karta">
+        <div class="ustoz-avatar">🏃‍♂️</div>
+        <h3>Jismoniy tarbiya</h3>
+        <p>Sog'lom tanni tarbiyalaydi.</p>
+        <span>Sport</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TARIX -->
+  <div id="tarix" class="bolim">
+    <p class="kichik-sarlavha">Xronologiya</p>
+    <h2>Tarixiy voqealar</h2>
+    <p class="tavsif">Bayramning qisqacha tarixi.</p>
+
+    <div class="qadam">
+      <div class="qadam-raqam">1</div>
+      <div>
+        <h3>1994-yil</h3>
+        <p>YuNESKO tashabbusi bilan 5-oktabr Xalqaro O'qituvchilar kuni deb e'lon qilindi.</p>
+      </div>
+    </div>
+    <div class="qadam">
+      <div class="qadam-raqam">2</div>
+      <div>
+        <h3>1997-yil</h3>
+        <p>O'zbekistonda 1-oktabr "Ustoz va Murabbiylar Kuni" sifatida nishonlana boshlandi.</p>
+      </div>
+    </div>
+    <div class="qadam">
+      <div class="qadam-raqam">3</div>
+      <div>
+        <h3>Bugun</h3>
+        <p>Har yili minglab maktab va o'quv markazlarida bayram tadbirlari o'tkaziladi.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HIKMATLI SO'Z -->
+  <div id="hikmat">
+    <div class="hikmat-quti">
+      <i>❝</i>
+      <h2>Minnatdorchilik</h2>
+      <p>"Ustoz otangdek ulug'" — barcha murabbiylarimizga sog'lik va omad tilaymiz!</p>
+    </div>
+  </div>
+
+  <!-- TABRIK YOZISH -->
+  <div id="yozish" class="bolim">
+    <p class="kichik-sarlavha">Yurakdan</p>
+    <h2>Ustozga tilak</h2>
+    <p class="tavsif">Quyidagi tilakni ustozingizga aytishingiz mumkin.</p>
+
+    <div class="tilak-quti">
+      <p>Hurmatli ustozim! Sizga mustahkam sog'liq, oilaviy baxt va ishlaringizda zafar tilayman.</p>
+      <p>Bergan bilimlaringiz uchun rahmat!</p>
+      <h3>Bayramingiz muborak bo'lsin!</h3>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div id="footer">
+    <div class="footer-yuqori">
+      <div>
+        <h3>UstozKuni</h3>
+        <p>Barcha ustoz va murabbiylarga hurmat bilan.</p>
+      </div>
+      <div>
+        <h3>Bo'limlar</h3>
+        <p>Bosh sahifa</p>
+        <p>Tabrik</p>
+        <p>Tarix</p>
+      </div>
+      <div>
+        <h3>Aloqa</h3>
+        <p><i>📞</i> +998 90 123 45 67</p>
+        <p><i>✉️</i> info@ustozkuni.uz</p>
+      </div>
+    </div>
+    <div class="footer-pastki">
+      <p>© 2026 — <span>Ustoz Kuni</span>. Barcha huquqlar himoyalangan.</p>
+    </div>
+  </div>
+
+</body>
+</html>
